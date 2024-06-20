@@ -5,6 +5,7 @@ import StudentList from "./StudentList";
 import TeacherList from "./TeacherList";
 import ClassesList from "./ClassesList";
 import CourseList from "./CourseList";
+import CreateStudent from "./CreateStudent";
 
 const AdminDashboard = () => {
 
@@ -13,6 +14,18 @@ const AdminDashboard = () => {
   const [manageStudent, setManageStudent] =useState(false);
   const [manageClass, setManageClass] = useState(false);
   const [manageCourse, setManageCourse] = useState(false);
+  const[manageCreateStudent, setManageCreatStudent]= useState(false)
+
+  const handleCreateStudent =() =>{
+
+    setManageCreatStudent(true)
+
+    setManageTheacher(false)
+
+    setManageStudent(false)
+    setManageClass(false)
+    setManageCourse(false)
+  }
 
 
   const handleTeacherListSelection =() =>{
@@ -135,7 +148,10 @@ const AdminDashboard = () => {
           >
             Search
           </button>
-          <button style={{
+          
+          
+        </form>
+        <button onClick={handleCreateStudent} style={{
               backgroundColor: "black",
               color: "white",
               width: "80px",
@@ -143,8 +159,6 @@ const AdminDashboard = () => {
               borderRadius: "5px",
               marginLeft:"450px"
             }}>Create</button>
-          
-        </form>
         
             
         
@@ -157,8 +171,9 @@ const AdminDashboard = () => {
           { mangeTeacher && <TeacherList/>}
           {manageClass && <ClassesList/>}
           {manageCourse && <CourseList/>}
+          {manageCreateStudent && <CreateStudent/>}
 
-          <h1 style={{}}> Welome the Admin Dashboard...</h1>
+          <h1 style={{}}> Welcome to the Admin Dashboard...</h1>
           <h2 style={{color:"blue"}}>Hit the Ground, Hard Working...</h2>
           
       </div>
