@@ -6,15 +6,21 @@ import TeacherList from "./TeacherList";
 import ClassesList from "./ClassesList";
 import CourseList from "./CourseList";
 import CreateStudent from "./CreateStudent";
+import { useNavigate } from "react-router-dom";
+
 
 const AdminDashboard = () => {
 
+  const navigate = useNavigate();
 
   const [mangeTeacher, setManageTheacher] = useState(false);
   const [manageStudent, setManageStudent] =useState(false);
   const [manageClass, setManageClass] = useState(false);
   const [manageCourse, setManageCourse] = useState(false);
   const[manageCreateStudent, setManageCreatStudent]= useState(false)
+ 
+
+  
 
   const handleCreateStudent =() =>{
 
@@ -122,7 +128,7 @@ const AdminDashboard = () => {
             <button onClick={handleClassListSelection} style={{backgroundColor:"white", width:"180px", height:"50px",borderRadius:"10px"}}>Manage Classes</button>
           </li>
           <li style={{marginTop:"120px"}}>
-            <button style={{backgroundColor:"white", width:"180px", height:"50px",borderRadius:"10px"}}>Logout</button>
+            <button onClick={() => navigate('/login')} style={{backgroundColor:"white", width:"180px", height:"50px",borderRadius:"10px"}}>Logout</button>
           </li>
         </ul>
       </div>
