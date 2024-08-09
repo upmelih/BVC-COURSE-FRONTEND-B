@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/student" element={<StudentDashboard />} />
         <Route path="/teacher" element={<TeacherDashboard />} />
         <Route path="/student-list/:classId" element={<StudentListForTeacherDashboard />} />
-        <Route path="/student-details/:id/:firstName/:lastName" element={<StudentDetailsForTeacherDashboard />} />
+        <Route path="/student-details/:id/:firstName/:lastName/:email/:phone" element={<StudentDetailsForTeacherDashboard />} />
         <Route path="/class-details/:id/:name/:teacher/:startDate/:endDate" element={<ClassDetailsForTeacherDashboard />} />
         <Route path="/details/:id/:name/:teacher/:startDate/:endDate" element={<Details />} />
         <Route path="/confirm-enrollment/:id/:name/:teacher/:startDate/:endDate" element={<EnrollmentConfirmation />} /> {/* Add the confirmation page route */}

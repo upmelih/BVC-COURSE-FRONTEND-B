@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useState,createContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
+
+
 
 const EnrollmentConfirmation = () => {
   const navigate = useNavigate();
   const { id, name, teacher, startDate, endDate } = useParams();
-
+  const [enrolledClasses, setEnrolledClasses] = useState([])
   const handleConfirmEnrollment = () => {
     // Add enrollment logic here (e.g., API call)
+    setEnrolledClasses(enrolledClasses.push(id,name,teacher,startDate, endDate))
+   
     navigate('/enrollment-success');
   };
+
+  console.log(enrolledClasses);
+  
 
   const handleCancel = () => {
     navigate('/student');
   };
 
   return (
+    <>
     <div
       style={{
         position: "absolute",
@@ -34,6 +43,8 @@ const EnrollmentConfirmation = () => {
       <button onClick={handleConfirmEnrollment} style={{ backgroundColor: "black", color: "white", width: "80px", borderRadius: "5px", marginRight: "10px" }}>Confirm</button>
       <button onClick={handleCancel} style={{ backgroundColor: "black", color: "white", width: "80px", borderRadius: "5px" }}>Cancel</button>
     </div>
+      
+    </>
   );
 };
 

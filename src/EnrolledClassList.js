@@ -1,8 +1,13 @@
-import React from 'react';
+import React ,{useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const EnrolledClassList = ({ searchQuery, handleDetailsClick }) => {
+
+const EnrolledClassList = ({ handleDetailsClick }) => {
+ 
+
   const navigate = useNavigate();
+ 
+  
 
   const classes = [
     { id: '256332', name: 'Full Stack Web', teacher: 'Shadman', startDate: '2024-06-07', endDate: '2024-06-07' },
@@ -11,11 +16,7 @@ const EnrolledClassList = ({ searchQuery, handleDetailsClick }) => {
     { id: '256335', name: 'Full Stack Web', teacher: 'Shadman', startDate: '2024-06-07', endDate: '2024-06-07' },
   ];
 
-  const filteredClasses = classes.filter(classItem =>
-    classItem.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    classItem.teacher.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    classItem.id.includes(searchQuery)
-  );
+  
 
   const handleEnroll = (classItem) => {
     navigate(`/confirm-enrollment/${classItem.id}/${classItem.name}/${classItem.teacher}/${classItem.startDate}/${classItem.endDate}`);
@@ -35,7 +36,7 @@ const EnrolledClassList = ({ searchQuery, handleDetailsClick }) => {
         </tr>
       </thead>
       <tbody>
-        {filteredClasses.map((classItem) => (
+        {classes.map((classItem) => (
           <tr key={classItem.id}>
             <td style={{ padding: "13px" }}>{classItem.id}</td>
             <td style={{ padding: "13px" }}>{classItem.name}</td>

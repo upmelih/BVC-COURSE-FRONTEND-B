@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
  
 const StudentDetails = () => {
-  const { id, firstName, lastName } = useParams();
+  const { id, firstName, lastName,email,phone } = useParams();
   const navigate = useNavigate();
  
   // Mock student details
@@ -10,8 +10,8 @@ const StudentDetails = () => {
     id,
     firstName,
     lastName,
-    email: `${firstName.toLowerCase()}@bvc.ca`,
-    phoneNumber: '985-565-5665',
+    email,
+    phone,
   };
  
   return (
@@ -21,7 +21,7 @@ const StudentDetails = () => {
 <p><strong>First Name:</strong> {studentDetails.firstName}</p>
 <p><strong>Last Name:</strong> {studentDetails.lastName}</p>
 <p><strong>Email:</strong> {studentDetails.email}</p>
-<p><strong>Phone Number:</strong> {studentDetails.phoneNumber}</p>
+<p><strong>Phone Number:</strong> {studentDetails.phone}</p>
 <button onClick={() => navigate(-1)} style={{ backgroundColor: "black", color: "white", width: "80px", borderRadius: "5px" }}>Go Back</button>
 </div>
   );

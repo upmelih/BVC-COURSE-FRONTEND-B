@@ -8,7 +8,7 @@ import EnrolledClassList from "./EnrolledClassList";
 const StudentDashboard = () => {
   const [mangeAllClass, setManageAllClass] = useState(false);
   const [manageEnroalledClass, setManageEnrolledClass] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+ 
   const navigate = useNavigate();
 
   const handleAllListSelection = () => {
@@ -22,7 +22,7 @@ const StudentDashboard = () => {
   };
 
   const handleDetailsClick = (classDetails) => {
-    navigate(`/details/${classDetails.id}/${classDetails.name}/${classDetails.teacher}/${classDetails.startDate}/${classDetails.endDate}`);
+    navigate(`/details/${classDetails.id}/${classDetails.name}/${classDetails.teacherName}/${classDetails.startDate}/${classDetails.endDate}`);
   };
 
   return (
@@ -91,28 +91,10 @@ const StudentDashboard = () => {
           left: "250px",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <form style={{ marginBottom: "50px" }} onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button
-              style={{
-                backgroundColor: "black",
-                color: "white",
-                width: "80px",
-                borderRadius: "5px",
-              }}
-            >
-              Search
-            </button>
-          </form>
-        </div>
+        
         {/* Table Content Goes here */}
-        {mangeAllClass && <AllClassList searchQuery={searchQuery} handleDetailsClick={handleDetailsClick} />}
-        {manageEnroalledClass && <EnrolledClassList searchQuery={searchQuery} handleDetailsClick={handleDetailsClick} />}
+        {mangeAllClass && <AllClassList  handleDetailsClick={handleDetailsClick} />}
+        {manageEnroalledClass && <EnrolledClassList  handleDetailsClick={handleDetailsClick} />}
 
         <h1>Welcome to the Student Dashboard...</h1>
         <h2 style={{ color: "blue" }}>Hit the Ground, Hard Working...</h2>
